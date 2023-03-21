@@ -37,6 +37,10 @@ function SignUp({ login }) {
           <Form.Label> Last Name </Form.Label>{" "}
           <Form.Control type="name" placeholder="Last Name" required />
         </Form.Group>
+        <Form.Group className="mb-3" controlId="CWID">
+          <Form.Label> CWID </Form.Label>{" "}
+          <Form.Control type="cwid" placeholder="Campus Wide I.D" required />
+        </Form.Group>
         <Form.Group
           id="login-email"
           className="mb-3"
