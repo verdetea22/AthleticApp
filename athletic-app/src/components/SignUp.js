@@ -24,6 +24,19 @@ function SignUp({ login }) {
   return (
     <div id="login">
       <Form id="login-form" onSubmit={submitLogin}>
+        <label>
+          <p>
+            Welcome! Please out the following <br />
+          </p>
+        </label>
+        <Form.Group className="mb-3" controlId="firstName">
+          <Form.Label> First Name </Form.Label>{" "}
+          <Form.Control type="name" placeholder="First Name" required />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="lastName">
+          <Form.Label> Last Name </Form.Label>{" "}
+          <Form.Control type="name" placeholder="Last Name" required />
+        </Form.Group>
         <Form.Group
           id="login-email"
           className="mb-3"
