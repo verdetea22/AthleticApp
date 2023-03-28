@@ -13,7 +13,7 @@ import { MDBFooter, MDBContainer, MDBBtn } from "mdb-react-ui-kit";
 import Home from "./components/Home.js";
 import Login from "./components/Login.js";
 import Events from "./components/Events.js";
-import SignUp from "./components/SignUp";
+import SignUp from "./components/SignUp.js";
 
 function App() {
   const [state, setState] = useState("home");
