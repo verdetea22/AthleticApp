@@ -99,7 +99,7 @@ function App() {
             <section className="">
               <p className="d-flex justify-content-center align-items-center">
                 <span className="me-3">Get started now</span>
-                {state === "signup" && <SignUp />}
+                {state === "signup"}
                 <MDBBtn
                   type="button"
                   outline
