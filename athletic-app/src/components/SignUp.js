@@ -3,12 +3,43 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
+import {
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+} from "firebase/auth";
+import { auth } from "./firebase-config";
+
 function SignUp({ signup }) {
-  function validateEmail(event) {
-    if (!event.target.value.endsWith("@stevens.edu")) {
-      event.target.setCustomValidity("Must sign up with your stevens email.");
-    } else {
-      event.target.setCustomValidity("");
+  {
+    const [registerEmail, setRegisterEmail] = useState("");
+    const [registerPassword, setRegisterPassword] = useState("");
+
+    const [user, setUser] = useState({});
+
+    onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+
+    const register = async () => {
+      try {
+        const user = await createUserWithEmailAndPassword(
+          auth,
+          registerEmail,
+          registerPassword
+        );
+        console.log(user);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+
+    function validateEmail(event) {
+      if (!event.target.value.endsWith("@stevens.edu")) {
+        event.target.setCustomValidity("Must sign up with your stevens email.");
+      } else {
+        event.target.setCustomValidity("");
+        setRegisterEmail(event.target.value);
+      }
     }
   }
 
@@ -26,7 +57,7 @@ function SignUp({ signup }) {
       <Form id="signup-form" onSubmit={submitSignup}>
         <label>
           <p>
-            Welcome! <br></br>Please out the following <br />
+            Welcome! <br> </br>Please out the following <br />
           </p>{" "}
         </label>{" "}
         <Form.Group className="mb-3" controlId="firstName">
@@ -59,9 +90,14 @@ function SignUp({ signup }) {
         </Form.Group>{" "}
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label> Password </Form.Label>{" "}
-          <Form.Control type="password" placeholder="Password" required />
+          <Form.Control
+            type="password"
+            placeholder="Password"
+            onChange={registerPassword}
+            required
+          />
         </Form.Group>{" "}
-        <Button variant="dark" type="submit">
+        <Button variant="dark" type="submit" onClick={register}>
           Sign Up{" "}
         </Button>{" "}
       </Form>{" "}
