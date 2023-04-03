@@ -9,7 +9,7 @@ import {
   signOut,
 } from "firebase/auth";
 
-import { auth } from "../services/firebase/firebase-config";
+import { auth } from "../services/firebase/fb-config";
 
 function Login({}) {
   const [loginEmail, setLoginEmail] = useState("");

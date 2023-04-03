@@ -7,7 +7,6 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
 } from "firebase/auth";
-import { auth } from "./firebase-config";
 
 function SignUp({ signup }) {
   {
@@ -93,7 +92,9 @@ function SignUp({ signup }) {
           <Form.Control
             type="password"
             placeholder="Password"
-            onChange={registerPassword}
+            onChange={(event) => {
+              setRegisterPassword(event.target.value);
+            }}
             required
           />
         </Form.Group>{" "}
