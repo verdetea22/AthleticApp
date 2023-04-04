@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import {
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+} from "firebase/auth";
+
+import { auth } from "../services/firebase/fb-config";
 
 function SignUp() {
   {
@@ -41,7 +47,7 @@ function SignUp() {
     const register = (e) => {
       e.preventDefault();
       setError("");
-      if (validatePassword() & validateEmail()) {
+      if (validatePassword()) {
         // Create a new user with email and password using firebase
         createUserWithEmailAndPassword(auth, email, password)
           .then(() => {
