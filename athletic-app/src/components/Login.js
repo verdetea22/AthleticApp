@@ -1,37 +1,27 @@
-import { useState } from "react";
+import { useState, setState } from "react";
 
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-
-import {
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut,
-} from "firebase/auth";
+import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 
 import { auth } from "../services/firebase/fb-config";
 
 function Login({}) {
-  const [loginEmail, setLoginEmail] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
-  const [user, setUser] = useState({});
-
-  onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-  });
-
-  const login = async () => {
-    try {
-      const user = await signInWithEmailAndPassword(
-        auth,
-        loginEmail,
-        loginPassword
-      );
-      console.log(user);
-    } catch (error) {
-      console.log(error.message);
-    }
+  const login = (e) => {
+    e.preventDefault();
+    signInWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        if (!auth.currentUser.emailVerified) {
+          sendEmailVerification(auth.currentUser).catch((err) =>
+            alert(err.message)
+          );
+        }
+      })
+      .catch((err) => setError(err.message));
   };
 
   const logout = async () => {
@@ -43,26 +33,12 @@ function Login({}) {
       event.target.setCustomValidity("Must login with your stevens email.");
     } else {
       event.target.setCustomValidity("");
-      setLoginEmail(event.target.value);
-    }
-  }
-
-  function setPassword(event) {
-    setLoginPassword(event.target.value);
-  }
-
-  function submitLogin(event) {
-    const form = event.target;
-    if (form.checkValidity()) {
-      event.preventDefault();
-      event.stopPropagation();
-      login();
     }
   }
 
   return (
     <div id="login">
-      <Form id="login-form" onSubmit={submitLogin}>
+      <Form id="login-form" onSubmit={login}>
         <Form.Group
           id="login-email"
           className="mb-3"
@@ -71,8 +47,9 @@ function Login({}) {
           <Form.Label> Email address </Form.Label>{" "}
           <Form.Control
             type="email"
+            value={email}
             placeholder="Enter email"
-            onChange={validateEmail}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
           <Form.Text className="text-muted">
@@ -83,15 +60,19 @@ function Login({}) {
           <Form.Label> Password </Form.Label>{" "}
           <Form.Control
             type="password"
+            value={password}
             placeholder="Password"
-            onChange={setPassword}
+            onChange={(e) => setPassword(e.target.value)}
             required
           />
         </Form.Group>{" "}
-        <Button variant="dark" type="submit">
+        <Button variant="dark" type="submit" onClick={() => setState("events")}>
           Log In{" "}
         </Button>{" "}
       </Form>{" "}
+      <br />
+      <br />
+      <br />
     </div>
   );
 }

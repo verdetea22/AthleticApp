@@ -43,29 +43,30 @@ function App() {
                 height="30"
                 className="d-inline-block align-top"
               />{" "}
-              Stevens Ducks Athletic App
-            </Navbar.Brand>
+              Stevens Ducks Athletic App{" "}
+            </Navbar.Brand>{" "}
             <Nav className="navbuttons">
+              {" "}
               {!loggedIn && (
                 <Button variant="dark" onClick={() => setState("login")}>
-                  Login
+                  Login{" "}
                 </Button>
-              )}
+              )}{" "}
               {!loggedIn && (
                 <Button variant="dark" onClick={() => setState("signup")}>
-                  Sign Up
+                  Sign Up{" "}
                 </Button>
-              )}
+              )}{" "}
               {loggedIn && (
                 <Button variant="dark" onClick={() => setState("events")}>
-                  Events
+                  Events{" "}
                 </Button>
-              )}
+              )}{" "}
               {loggedIn && (
                 <Button variant="dark" onClick={() => setState("history")}>
-                  My History
+                  My History{" "}
                 </Button>
-              )}
+              )}{" "}
               {loggedIn && (
                 <Button
                   variant="dark"
@@ -74,21 +75,18 @@ function App() {
                     setLoggedIn(false);
                   }}
                 >
-                  Log Out
+                  Log Out{" "}
                 </Button>
-              )}
-            </Nav>
-          </Container>
-        </Navbar>
+              )}{" "}
+            </Nav>{" "}
+          </Container>{" "}
+        </Navbar>{" "}
       </nav>
-
       <main>
-        {state === "home" && <Home />}
-        {state === "login" && <Login />}
-        {state === "events" && <Events />}
-        {state === "signup" && <SignUp />}
+        {" "}
+        {state === "home" && <Home />} {state === "login" && <Login />}{" "}
+        {state === "events" && <Events />} {state === "signup" && <SignUp />}{" "}
       </main>
-
       <br />
       <footer>
         <MDBFooter
@@ -98,8 +96,8 @@ function App() {
           <MDBContainer className="p-4 pb-0">
             <section className="">
               <p className="d-flex justify-content-center align-items-center">
-                <span className="me-3">Get started now</span>
-                {state === "signup"}
+                <span className="me-3"> Get started now </span>{" "}
+                {state === "signup"}{" "}
                 <MDBBtn
                   type="button"
                   outline
@@ -107,20 +105,19 @@ function App() {
                   rounded
                   onClick={() => setState("signup")}
                 >
-                  Sign Up
-                </MDBBtn>
-              </p>
-            </section>
+                  Sign Up{" "}
+                </MDBBtn>{" "}
+              </p>{" "}
+            </section>{" "}
           </MDBContainer>
-
           <div
             className="text-center p-3"
             style={{ backgroundColor: "#3C0008" }}
           >
-            © 2023 Copyright: SSW 540 Group 1
-          </div>
-        </MDBFooter>
-      </footer>
+            ©2023 Copyright: SSW 540 Group 1{" "}
+          </div>{" "}
+        </MDBFooter>{" "}
+      </footer>{" "}
     </div>
   );
 }
