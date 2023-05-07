@@ -19,6 +19,8 @@ function Login({}) {
           sendEmailVerification(auth.currentUser).catch((err) =>
             alert(err.message)
           );
+        } else {
+          alert("Login Successful");
         }
       })
       .catch((err) => setError(err.message));
