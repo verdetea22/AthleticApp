@@ -43,6 +43,7 @@ const logInWithEmailAndPassword = async(email, password) => {
         console.error(err);
         alert(err.message);
     }
+    `1 `
 };
 const registerWithEmailAndPassword = async(name, email, password) => {
     try {
