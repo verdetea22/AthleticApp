@@ -56,7 +56,7 @@ function App() {
                   Sign Up
                 </Button>
               )}
-              {loggedIn && (
+              { (
                 <Button variant="dark" onClick={() => setState("events")}>
                   Events
                 </Button>

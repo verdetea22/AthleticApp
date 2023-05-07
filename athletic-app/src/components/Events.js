@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 
 import EventCard from './EventCard.js'
 
-const events = [
+const StartingEvents = [
   {
     id: 1,
     title:"yoga",
@@ -26,9 +26,12 @@ const events = [
 ]
 
 function Events() {
+  const events = useRef(StartingEvents);
+  console.log(events)
+
   return (
     <div id="events">
-      {events.map(event => (
+      {events.current.map(event => (
         <EventCard event={event} key={event.id} />
       ))}
     </div>
