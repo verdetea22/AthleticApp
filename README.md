@@ -5,8 +5,8 @@ The pandemic had a damaging effect on the attendance of athletic department acti
 
 To address the above problem, the team has created this application that allows students to view the calendar of upcoming various events and the ability to “sign in” to that they attend. There will be two categories of events: one will describe “active” events, where the student would be participating in the activity, and the other will describe “passive” events, where the student would be spreading school spirit by attending events. These two groups will be further broken down into tiers of participation that would be equated to a point system. If students were to earn enough points to meet a certain threshold, their involvement with various athletic programs could satisfy a PE class requirement, but also can be used for recreational fun. The goal for StevensGo is to both motivate students to be active, provide a friendly alternative to standard physical education classes, and bring the Stevens community together in an exciting and new way that supports our athletics department’s efforts, planning, and execution.
 
-## How was * made?
-#### * is made using React for front-end components and routing. React-Bootstrap is being used as our CSS framework. All user data and authentication is being done using google firebase. The website is also being hosted on google firebase servers. Afll components were created in Javascript.
+## How was StevensGO made?
+#### StevensGO is made using React for front-end components and routing. React-Bootstrap is being used as our CSS framework. All user data and authentication is being done using google firebase. The website is also being hosted on google firebase servers. Afll components were created in Javascript.
 
 ## How to run locally?
 1. Clone the repository into a local directory.
