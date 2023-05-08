@@ -9,7 +9,7 @@ This application aims to revitalize student interest in athletics and fitness at
 
 
 ## How was StevensGO made?
-#### StevensGO is made using ReactJS for front-end components. React-Bootstrap is being used as our CSS framework. All user data and authentication is being done using Google Firebase. 
+ StevensGO is made using ReactJS for front-end components. React-Bootstrap is being used as our CSS framework. All user data and authentication is being done using Google Firebase.
 
 ## How to run locally?
 1. Clone the repository into a local directory.
@@ -17,6 +17,7 @@ This application aims to revitalize student interest in athletics and fitness at
 3. Run "npm install".
 4. Run "npm start"
 5. The website is now hosted locally at http://localhost:3000/
+*To easily see our user interface, please see the UI folder
 
 ## Created By
 1. Mikayla Mount
