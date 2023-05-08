@@ -17,7 +17,8 @@ This application aims to revitalize student interest in athletics and fitness at
 3. Run "npm install".
 4. Run "npm start"
 5. The website is now hosted locally at http://localhost:3000/
-*To easily see our user interface, please see the UI folder
+
+*To easily see our user interface, please see the UI folder*
 
 ## Created By
 1. Mikayla Mount
