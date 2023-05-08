@@ -16,6 +16,8 @@ const DEFAULT_EVENT = {
 };
 
 function EventCard({event}) {
+  const tweetBody = `https://twitter.com/intent/tweet?hashtags=stevensathletics&text=Hey!%20I'll%20be%20at%20${event.title}%20at%20${event.time}%20at%20${event.location}!%20Who%20else%20wants%20to%20come?%20#stevensathletics`
+
   return (
     <Card style={{ width: '18rem' }}>
     <Card.Img variant="top" src={event.image || DEFAULT_EVENT.image}/>
@@ -34,7 +36,7 @@ function EventCard({event}) {
     </ListGroup>
     <Card.Body>
       <Card.Link href="#">Attend</Card.Link>
-      <Card.Link href="#">Share</Card.Link>
+      <Card.Link className="twitter-share-button" target="_blank" href={tweetBody}>Share</Card.Link>
     </Card.Body>
   </Card>
   );
